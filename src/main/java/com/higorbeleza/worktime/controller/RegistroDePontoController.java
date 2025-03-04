@@ -2,6 +2,8 @@ package com.higorbeleza.worktime.controller;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.Month;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -54,5 +56,50 @@ public class RegistroDePontoController {
     @GetMapping("/horas/{id}")
     public long calcularHorasTrabalhadas(@PathVariable Long id) {
         return service.calcularHorasTrabalhadas(id);
+    }
+
+    // Recuperar todos os registros de ponto do mês
+    @GetMapping("/registros-mes")
+    public List<RegistroDePonto> buscarRegistrosPorMes(
+            @RequestParam int ano,
+            @RequestParam int mes) {
+
+        return service.buscarRegistrosPorMes(ano, Month.of(mes));
+    }
+
+    // Endpoint para calcular o total de horas trabalhadas no mês
+    @GetMapping("/total-horas-mes")
+    public long calcularTotalHorasNoMes(
+            @RequestParam int ano,
+            @RequestParam int mes) {
+        return service.calcularTotalHorasNoMes(ano, Month.of(mes));
+    }
+
+    // Endpoint para calcular o total de minutos trabalhados no mês
+    @GetMapping("/total-minutos-mes")
+    public long calcularTotalMinutosNoMes(
+            @RequestParam int ano,
+            @RequestParam int mes) {
+        return service.calcularTotalMinutosNoMes(ano, Month.of(mes));
+    }
+
+    // Endpoint para calcular os minutos trabalhados de um único registro
+    @GetMapping("/minutos/{id}")
+    public long calcularMinutosTrabalhados(@PathVariable Long id) {
+        return service.calcularMinutosTrabalhados(id);
+    }
+
+    // Endpoint para calcular o pagamento de um único registro
+    @GetMapping("/pagamento/{id}")
+    public double calcularPagamento(@PathVariable Long id) {
+        return service.calcularPagamento(id);
+    }
+
+    // Endpoint para calcular o pagamento total no mês
+    @GetMapping("/pagamento-total-mes")
+    public double calcularPagamentoTotalNoMes(
+            @RequestParam int ano,
+            @RequestParam int mes) {
+        return service.calcularPagamentoTotalNoMes(ano, Month.of(mes));
     }
 }
