@@ -7,13 +7,13 @@ Este projeto oferece uma API REST para o registro de pontos de funcionários, on
 `curl -X POST "http://localhost:8080/api/registro-ponto/entrada?funcionario=João&entrada=09:03&data=2025-02-01"`
 
 ### 2. Registrar Saída para o Almoço
-`curl -X POST "http://localhost:8080/api/registro-ponto/saida-almoco/1?saidaAlmoco=12:`
+`curl -X POST "http://localhost:8080/api/registro-ponto/saida-almoco/1?saidaAlmoco=13:00`
 
 ### 3. Registrar Retorno do Almoço
-`curl -X POST "http://localhost:8080/api/registro-ponto/retorno-almoco/1?retornoAlmoco=13:00"`
+`curl -X POST "http://localhost:8080/api/registro-ponto/retorno-almoco/1?retornoAlmoco=15:00"`
 
 ### 4. Registrar Saída Final
-`curl -X POST "http://localhost:8080/api/registro-ponto/saida/1?saida=18:00"`
+`curl -X POST "http://localhost:8080/api/registro-ponto/saida/1?saida=19:00"`
 
 ### 5. Calcular Horas Trabalhadas
 `curl -X GET "http://localhost:8080/api/registro-ponto/horas/1"`
