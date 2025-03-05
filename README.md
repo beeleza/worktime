@@ -2,6 +2,27 @@
 
 Este projeto oferece uma API REST para o registro de pontos de funcionários, onde você pode registrar entradas, saídas, retornos de almoço, e calcular as horas trabalhadas e o pagamento baseado nas horas trabalhadas.
 
+## Configuração do Projeto
+
+### Requisitos
+
+- Java 17+
+- Maven 3+
+
+### Como rodar o projeto
+
+```bash
+# Clonar o repositório
+git clone https://github.com/beeleza/worktime.git
+cd worktime
+
+# Construir o projeto com Maven
+mvn clean install
+
+# Rodar a aplicação
+mvn spring-boot:run
+```
+
 ## Endpoints
 ### 1. Registrar Entrada
 `curl -X POST "http://localhost:8080/api/registro-ponto/entrada?funcionario=João&entrada=09:03&data=2025-02-01"`
@@ -35,3 +56,4 @@ Este projeto oferece uma API REST para o registro de pontos de funcionários, on
 - Formato de Hora: Todas as horas devem ser passadas no formato `HH:mm` (por exemplo, 09:03).
 - Cálculo de Pagamento: O pagamento é calculado com base em R$ 6,90 por hora. A conversão de minutos para pagamento considera que 1 hora equivale a 60 minutos.
 - Validação de Data: Certifique-se de passar uma data válida no formato `yyyy-MM-dd`.
+
